@@ -1,0 +1,20 @@
+stamped: false
+inputs:
+  linear:
+    x: axis_left_y
+    y: axis_left_x
+    z: axis_r2 - axis_l2
+  angular:
+    x: -axis_right_x
+    y: axis_right_y
+    z: button_l1 - button_r1
+scales:
+  linear:
+    # Default scale is 1.0
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  angular:
+    x: 0.8
+    y: 0.8
+    z: 0.8

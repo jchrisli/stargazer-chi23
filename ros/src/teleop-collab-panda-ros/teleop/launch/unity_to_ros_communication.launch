@@ -1,0 +1,13 @@
+<!-- 
+This launch file allows add programs that support communicating back and forth between Unity and ROS
+1. Command to home the robot from Unity to ROS.
+2. Command to request trajectories from Unity to ROS and back>
+3. Comnmand to segment a demonstration if one exists
+-->
+
+<launch>
+    <node name="button_to_robot_command_server_node" pkg="teleop" type="button_to_robot_command_server.py"/>
+    <node name="joint_trajectory_to_poses_server_node" pkg="teleop" type="joint_trajectory_to_poses_server.py"/>
+    <node name="segment_demonstrations_server" pkg="teleop" type="segment_demonstrations.py"/>
+    <node name="robot_arm_functions_node" pkg="teleop" type="robot_arm_functions.py"/>
+</launch>

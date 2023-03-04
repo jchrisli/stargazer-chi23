@@ -1,0 +1,4 @@
+# Service to send joint_State commands to move the robot
+sensor_msgs/JointState joint_state
+---
+bool success

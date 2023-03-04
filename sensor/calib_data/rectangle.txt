@@ -1,0 +1,11 @@
+% 2022/03/12 22:24:11
+surface.name=BigKitchenTable
+surface.kinect=DESKTOP-68AFDPN
+surface.bottom.left=0.724978:-0.2298918:1.531
+surface.bottom.right=0.1671719:-0.2996283:1.019
+surface.top.left=-0.1911779:0.001745343:2.49757
+surface.top.right=-0.748984:-0.06799121:1.98557
+tracker.surface.bottom.left=0.9974216:0.6606016:1.61386
+tracker.surface.bottom.right=0.2392994:0.7137539:1.589764
+tracker.surface.top.left=1.042769:0.695132:0.2633016
+tracker.surface.top.right=0.2846465:0.7482843:0.2392055

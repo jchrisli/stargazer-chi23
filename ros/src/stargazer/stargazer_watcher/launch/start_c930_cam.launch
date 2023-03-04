@@ -1,0 +1,41 @@
+<launch>
+  <group ns="camera">
+
+    <!-- launch the camera driver -->
+    <node pkg="libuvc_camera" type="camera_node" name="c930_cam">
+      <!-- Parameters used to find the camera -->
+      <param name="frame_id" value="c930_camera" />
+      <param name="vendor" value="0x046d"/>
+      <param name="product" value="0x0843"/>
+      <param name="serial" value=""/>
+      <!-- If the above parameters aren't unique, choose the first match: -->
+      <param name="index" value="0"/>
+
+      <!-- Image size and type -->
+      <param name="width" value="1280"/>
+      <param name="height" value="720"/>
+      <!-- choose whichever uncompressed format the camera supports: -->
+      <param name="video_mode" value="mjpeg"/> <!-- or yuyv/nv12/mjpeg -->
+      <param name="frame_rate" value="15"/>
+
+      <!--<param name="timestamp_method" value="start"/>--> <!-- start of frame -->
+      <!-- read intrisic parameters from a YAML file -->
+      <!--<param name="camera_info_url" value="file:///tmp/cam.yaml"/>-->
+
+      <param name="auto_exposure" value="3"/> <!-- use aperture_priority auto exposure -->
+      <param name="auto_white_balance" value="false"/>
+      <param name="brightness" value="128"/>
+    </node>
+
+    <node name="cam_info_publisher" pkg="stargazer_watcher" type="publish_cam_intrinsic.py" output="screen" args="$(find stargazer_watcher)/data/c930-720p-caminfo.yaml" />
+  </group>
+
+  <!-- static transforms -->
+  
+<!--
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c930"
+      args="0.961045 -0.101679 1.38706   0.996908 -0.0173013 0.0121879 -0.0756754 panda_link0 c930_camera" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c922"
+      args="0.00453266 -0.0153846 0.0492252   -0.312432 0.782021 -0.497361 0.208476 panda_link8 c922_camera" />
+  -->
+</launch>

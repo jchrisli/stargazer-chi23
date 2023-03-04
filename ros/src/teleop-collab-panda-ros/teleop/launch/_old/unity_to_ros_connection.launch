@@ -1,0 +1,12 @@
+<!--
+    This launch file sets up the server_endpoint script that we use to get
+    the most recent joint states for our Unity robot.
+
+    Here we launch:
+    1. The server_endpoint node which exposes the JointStates messages to Unity.
+-->
+<launch>
+    <rosparam file="$(find teleop)/config/params.yaml" command="load"/>
+    <node name="joint_states_sub_server_endpoint" pkg="teleop" type="joint_states_sub_server_endpoint.py" args="--wait" output="screen" respawn="true"/>
+</launch>
+

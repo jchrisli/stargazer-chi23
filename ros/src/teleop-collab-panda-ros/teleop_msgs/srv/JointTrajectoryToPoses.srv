@@ -1,0 +1,4 @@
+trajectory_msgs/JointTrajectory joint_trajectory
+---
+geometry_msgs/PoseStamped[] poses
+std_msgs/Float32[] overlaps

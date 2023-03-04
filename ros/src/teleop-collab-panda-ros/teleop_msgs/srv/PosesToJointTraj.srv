@@ -1,0 +1,4 @@
+geometry_msgs/Pose[] poses
+---
+trajectory_msgs/JointTrajectory joint_traj
+std_msgs/Bool success

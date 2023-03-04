@@ -1,0 +1,17 @@
+<!-- 
+This launch file allows us to start 3 important things:
+1. The robot script (without move group currently)
+2. Unity communication interface so that ROS and Unity can talk
+3. Joystick control from Unity to ROS
+-->
+
+<launch>
+    <include file="$(find panda_gazebo)/launch/panda_world.launch"> 
+        <arg name="start_moveit" value="false" />
+        <arg name="gui" value="true" />
+    </include>
+    <!--include file="$(find teleop)/launch/unity_to_ros_connection.launch" /-->
+    <?ignore
+        <node name="panda_move_from_joy" pkg="teleop" type="panda_cmds_sub.py" args="--wait" output="screen" respawn="true" />
+    ?>
+</launch>

@@ -1,0 +1,4 @@
+std_msgs/String button_press
+trajectory_msgs/JointTrajectory desired_joint_trajectory
+---
+std_msgs/Bool success

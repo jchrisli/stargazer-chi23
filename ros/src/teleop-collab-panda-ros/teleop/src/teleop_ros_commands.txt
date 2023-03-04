@@ -1,0 +1,6 @@
+roslaunch teleop unity_ros_server.launch
+roslaunch teleop robot_teleop.launch
+roslaunch teleop unity_to_ros_communication.launch
+roslaunch panda_sim_moveit sim_move_group.launch
+roslaunch ros_dmp dmp_sim.launch
+rosrun teleop panda_create_movement_primitive_server.py

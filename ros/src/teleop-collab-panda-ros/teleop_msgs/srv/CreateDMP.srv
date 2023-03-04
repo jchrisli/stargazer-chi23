@@ -1,0 +1,6 @@
+# Allows us to send poses from Unity to record a movement primitive
+geometry_msgs/Pose[] waypoint_poses
+moveit_msgs/RobotTrajectory robot_traj
+std_msgs/String primitive_name
+---
+std_msgs/Bool success

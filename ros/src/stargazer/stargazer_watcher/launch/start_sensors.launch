@@ -1,0 +1,41 @@
+<launch>
+    <arg name="get_image" default="false" />
+    <group if="$(arg get_image)" ns="camera">
+    
+        <node name="c930_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <param name="video_device" value="/dev/video0" />
+            <param name="image_width" value="1280" />
+            <param name="image_height" value="720" />
+            <param name="pixel_format" value="mjpeg" />
+            <param name="camera_frame_id" value="c930_camera" />
+            <param name="io_method" value="mmap"/>
+
+            <!--my parameters-->
+            <param name="brightness" value="128" />
+            <param name="autofocus" value="true" />
+
+        </node>
+
+        <node name="cam_info_publisher" pkg="stargazer_watcher" type="publish_cam_intrinsic.py" output="screen" args="$(find stargazer_watcher)/data/c930-720p-caminfo.yaml" />
+
+    </group>
+
+    <!--
+      Note the form of static transform publisher parameter is as follows
+      x y z qx qy qz qw frame_id child_frame_id
+    -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c930"
+      args="0.99006 -0.0839353 1.27123   0.999383 -0.0317308 0.0100134 -0.0112099 panda_link0 c930_camera" />
+
+    <!--camera to camera mount-->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_pixel6pro"
+      args="0.055 0 0.085   0.5 0.5 0.5 0.5 panda_camera_mount pixel6pro" /> 
+
+    <!-- Kinect to c930 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_kinect"
+      args="1.06315327 0.58704665 2.1859963   0.495875 0.528110 -0.488846 -0.486041 c930_camera kinect" />
+
+    <!-- c922 for external face and hand tracking -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c922"
+      args="0.333266 -1.10573 0.429615   -0.693141 0.269094 -0.267527 0.61284 panda_link0 c922_camera" />
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find teleop)/launch/unity_ros_server.launch" />
+    <include file="$(find teleop)/launch/robot_teleop.launch" />
+    <include file="$(find teleop)/launch/unity_to_ros_communication.launch" />
+    <include file="$(find teleop)/launch/robot_dmp_record_generate.launch" />
+
+    <node name="robot_arm_functions_node" pkg="teleop" type="robot_arm_functions.py" respawn="true" />
+
+</launch>

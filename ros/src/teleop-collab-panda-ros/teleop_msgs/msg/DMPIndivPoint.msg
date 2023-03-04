@@ -1,0 +1,2 @@
+geometry_msgs/Pose generated_trajectory_pose
+trajectory_msgs/JointTrajectoryPoint joint_traj_point

@@ -1,0 +1,8 @@
+# Allows us to send poses from Unity to generate a traj. using DMPs
+geometry_msgs/Pose[] start_and_end_poses
+std_msgs/String primitive_name
+trajectory_msgs/JointTrajectory initial_traj
+---
+geometry_msgs/Pose[] generated_trajectory_poses
+trajectory_msgs/JointTrajectory joint_traj
+std_msgs/Bool success

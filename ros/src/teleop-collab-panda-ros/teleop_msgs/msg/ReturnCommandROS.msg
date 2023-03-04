@@ -1,0 +1,2 @@
+std_msgs/Bool success
+sensor_msgs/JointState updated_joint_state

@@ -1,0 +1,18 @@
+<!--
+    Launch file to spawn nodes to control Unity and ROS elements.
+-->
+<launch>
+    <!--NEW ROS-->
+    <!--include file="$(find teleop)/launch/unity_to_ros_connection.launch" /-->
+    <!--node name="button_to_robot_command_server_node" pkg="teleop" type="button_to_robot_command_server.py" respawn="true" /-->
+
+    <!--ROSSHARP-->
+    <include file="$(find file_server)/launch/ros_sharp_communication.launch" />
+    <node name="joint_trajectory_to_poses_server_node" pkg="teleop" type="joint_trajectory_to_poses_server.py" respawn="true" />
+    <node name="button_to_robot_command_server_node" pkg="teleop" type="button_to_robot_command_server.py" respawn="true" />
+    <node name="clear_primitives_server_node" pkg="teleop" type="clear_saved_primitives_server.py" respawn="true" />
+
+</launch>
+
+
+

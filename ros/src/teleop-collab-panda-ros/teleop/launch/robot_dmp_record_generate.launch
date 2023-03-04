@@ -1,0 +1,16 @@
+<!-- 
+Launch file used to set up the server scripts to record and replay a DMP.
+Does not include the scripts in the middle that will actually need to learn from the traj. and also create a new traj.
+-->
+<launch>
+    <include file="$(find ros_dmp)/launch/dmp_sim.launch" />
+    <!--include file="$(find panda_sim_moveit)/launch/sim_move_group.launch" /-->
+
+    <!--node name="record_primitive_sever_node" pkg="teleop" type="panda_create_movement_primitive_server.py" respawn="true" />
+    <node name="apply_movement_primitive_server_node" pkg="teleop" type="panda_apply_movement_primitive_server.py" respawn="true" /-->
+    <node name="cartesian_dmp_server_node" pkg="teleop" type="panda_cartesian_dmp.py" respawn="true" />
+    <!--node name="panda_motion_plan_execute_server_node" pkg="teleop" type="panda_motion_plan_execute_server.py" respawn="true" /-->
+    <node name="clear_movement_primitive_server_node" pkg="teleop" type="clear_saved_primitives_server.py" respawn="true" />
+
+
+</launch>

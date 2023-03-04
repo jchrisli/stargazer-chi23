@@ -1,0 +1,2 @@
+sensor_msgs/JointState current_joint_state
+trajectory_msgs/JointTrajectory joint_trajectory

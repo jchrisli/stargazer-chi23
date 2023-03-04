@@ -1,0 +1,16 @@
+<!-- 
+This launch file allows us to initiate:
+1. Panda Robot w/o MoveIt first
+2. MoveIt server so that we can perform motion plans
+3. Servo server so we can control it using a joystick
+-->
+<launch>
+    <!--include file="$(find panda_gazebo)/launch/panda_world.launch"/>
+        <arg name="start_moveit" value="false"/-->
+    <include file="$(find panda_sim_moveit)/launch/sim_move_group.launch">
+        <arg name="load_gripper" value="false" />
+    </include>
+    <include file="$(find teleop)/launch/servo_server.launch"/>
+    <!--node name="panda_servoing_from_unity_joy_node" pkg="teleop" type="panda_servoing_cmds_sub.py"/-->
+    <!--<node name="echo_servo_node" pkg="teleop" type="apply_servo_cmds.py"/>-->
+</launch>

@@ -1,0 +1,3 @@
+geometry_msgs/Pose goal_pose
+---
+std_msgs/Bool success

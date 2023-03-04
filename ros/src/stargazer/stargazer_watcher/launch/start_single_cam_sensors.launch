@@ -1,0 +1,27 @@
+<launch>
+    <!--
+      Note the form of static transform publisher parameter is as follows
+      x y z qx qy qz qw frame_id child_frame_id
+    -->
+    <!-- old mount-->
+    <!--
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_pixel6pro"
+      args="0.055 0 0.085   0.5 0.5 0.5 0.5 panda_camera_mount pixel6pro" /> 
+    -->
+
+    <!--camera to camera mount-->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_pixel6pro"
+      args="0.003658 -0.000769 0.086924 0.27059805, 0.27059805, 0.65328148, 0.65328148 panda_camera_mount pixel6pro" />
+
+    <!-- Kinect to c922 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_kinect"
+      args="0.76331743 0.68564012 2.91446256 0.91128159 0.11712464 -0.38501694 -0.08723325 c922_camera_virtual kinect" />
+
+    <!-- virtual c922 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c922_virtual"
+      args="-0.0371019 -1.47108 0.777869   -0.77035 0.232234 -0.219273 0.551859 panda_link0 c922_camera_virtual" />
+
+    <!-- c922 for external face and hand tracking -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster_c922_real"
+      args="0.00540809 -1.47132 0.633732   -0.696644 0.245267 -0.268764 0.618301 panda_link0 c922_camera" />
+</launch>

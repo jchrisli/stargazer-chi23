@@ -1,0 +1,21 @@
+<launch>
+    <group ns="camera">
+    
+        <node name="c922_1280_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <param name="video_device" value="/dev/video0" />
+            <param name="image_width" value="1280" />
+            <param name="image_height" value="720" />
+            <param name="pixel_format" value="mjpeg" />
+            <param name="camera_frame_id" value="c922_camera" />
+            <param name="io_method" value="mmap"/>
+
+            <!--my parameters-->
+            <param name="brightness" value="128" />
+            <param name="autofocus" value="true" />
+
+        </node>
+
+        <node name="cam_info_publisher" pkg="stargazer_watcher" type="publish_cam_intrinsic.py" output="screen" args="$(find stargazer_watcher)/data/c922-720p.yaml" />
+
+    </group>
+</launch>

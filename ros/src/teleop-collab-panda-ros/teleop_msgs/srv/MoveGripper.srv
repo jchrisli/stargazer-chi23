@@ -1,0 +1,3 @@
+std_msgs/Float64 gripper_pos
+---
+std_msgs/Bool success
